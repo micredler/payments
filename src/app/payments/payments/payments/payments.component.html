@@ -1,0 +1,33 @@
+<div class="payment" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Whom</mat-label>
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+  <div class="payment">
+    <mat-form-field appearance="fill">
+      <mat-label>Currency</mat-label>
+      <mat-select formControlName="currency">
+        <mat-option *ngFor="let cur of currency" [value]="cur.value">
+          {{cur.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="payment">
+    <mat-form-field appearance="outline">
+      <mat-label>Sum</mat-label>
+      <input matInput placeholder="Sum" formControlName="sum">
+    </mat-form-field>
+  </div>
+  <div class="payment">
+    <mat-form-field appearance="fill">
+      <mat-label>Payment Method</mat-label>
+      <mat-select formControlName="paymentMethod">
+        <mat-option *ngFor="let met of methods" [value]="met.value">
+          {{met.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button (click)="sendPayments()" mat-flat-button color="primary">Pay</button>
+</div>
